@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regular Expression</title>
+    <style>
+        * {
+            font-family: monospace;
+        }
+
+        body {
+            height: 100vh;
+            font-size: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(62deg, #85ffbd, #fffb7d);
+        }
+
+        .content {
+            width: 300px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .regex-input {
+            width: 100%;
+            margin: 5px;
+            padding: 5px;
+            font-size: 20px;
+        }
+
+        .enter-bt {
+            font-size: 20px;
+            margin-left: auto;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="content" id="regex-form" onsubmit="validateForm()">
+        <div style="font-weight: 800; margin: 5px">RegEx Pattern</div>
+        <input id="username" class="regex-input" placeholder="Username" pattern="[0-9a-z]{4,20}" title="Username can only contain digit from 0-9 and lowercase alphabet"/>
+        <input id="password" class="regex-input" placeholder="Password" pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[$-/:-?{-~\\])[A-Za-z\d$-/:-?{-~\\]{8,}" title="Password must be longer than 8 character and contain atleast one of each of the following : lower and upper case  alphabet 0-9 digit and special letter" />
+        <input type="submit" class="enter-bt" />
+    </form>
+</body>
+
+<script>
+    /// write function here.
+    function validateForm(){
+        var userName = document.getElementById("username").value;
+        var pass = document.getElementById("password").value;
+        var userAlert = " ";
+        var reU = /[^0-9a-z]/g;
+        var i=0;
+        if (userName!=null && pass !=null) {
+            alert("Submitted");
+        }
+
+    }
+    document.getElementById("username").setAttribute("title",userAlert);
+</script>
+
+</html>
