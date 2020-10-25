@@ -44,8 +44,8 @@
 <body>
     <form class="content" id="regex-form" onsubmit="validateForm()">
         <div style="font-weight: 800; margin: 5px">RegEx Pattern</div>
-        <input id="username" class="regex-input" placeholder="Username" pattern="[0-9a-z]{4,20}" title="Username can only contain digit from 0-9 and lowercase alphabet"/>
-        <input id="password" class="regex-input" placeholder="Password" pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[$-/:-?{-~\\])[A-Za-z\d$-/:-?{-~\\]{8,}" title="Password must be longer than 8 character and contain atleast one of each of the following : lower and upper case  alphabet 0-9 digit and special letter" />
+        <input id="username" class="regex-input" placeholder="Username" pattern="[0-9a-z]{4,20}" title="Username can only contain digit from 0-9 and lowercase alphabet" required/>
+        <input id="password" class="regex-input" placeholder="Password" pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[\\!”#$%&'()*+,-./:;<=>?@[\]^_`{|}~/])[A-Za-z\d\\!”#$%&'()*+,-./:;<=>?@[\]^_`{|}~/]{8,}" title="Password must be longer than 8 character and contain atleast one of each of the following : lower and upper case  alphabet 0-9 digit and special letter" required/>
         <input type="submit" class="enter-bt" />
     </form>
 </body>

@@ -1,0 +1,77 @@
+.hoverzoom img{
+    height: 30%;
+    transition: transform .2s;
+    margin: 0 auto;
+}
+
+.hoverzoom{
+    margin:50px;
+}
+
+.hoverzoom img:hover{
+    transform: scale(1.5);
+}
+
+.clickfly img{
+    height: 30%;
+    transition: transform .15s;
+}
+
+.clickfly{
+    margin:50px;
+}
+
+.clickfly img:active{
+    transform: translate(0px,-700px);
+}
+.hell p, .heaven p{
+    margin:auto auto;
+}
+.hell:hover p{
+    cursor: pointer;
+    transform:translateY(-80px) ;
+}
+.hell{
+    width: 80px;
+    height: 80px;
+    border:1px solid black;
+    border-radius:30px;
+    text-align: center;
+    line-height: 80px;
+    overflow: hidden;
+    margin: 50px;
+}
+
+.heaven{
+    width: 80px;
+    height: 80px;
+    border:1px solid black;
+    border-radius:30px;
+    text-align: center;
+    line-height: 80px;
+    overflow: hidden;
+    margin:50px;
+}
+
+#flip{
+    transform: scale(-1,-1);
+    
+}
+
+.heaven:hover .spin{
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+

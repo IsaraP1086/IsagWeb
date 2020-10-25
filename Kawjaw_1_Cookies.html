@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function setCookie(cname,cvalue) {
+    document.cookie = cname + "=" + cvalue + ";" + ";path=/";
+}
+function encrypt(word){
+    var salt="";
+    var str='a';
+    var STR='A';
+    var str0='0';
+    for(var i=0;i<word.length;i++){   
+        if(word.charCodeAt(i)>=97 && word.charCodeAt(i)<=122){
+            salt+=String.fromCharCode((word.charCodeAt(i)+word.charCodeAt(i)-str.charCodeAt(0))%26+str.charCodeAt(0));
+            salt+=String.fromCharCode(word.charCodeAt(i)+1);
+        }
+        else if(word.charCodeAt(i)>=48 && word.charCodeAt(i)<=57){
+            salt+=String.fromCharCode((word.charCodeAt(i)+word.charCodeAt(i)-str0.charCodeAt(0))%10+str0.charCodeAt(0))
+            salt+=String.fromCharCode(word.charCodeAt(i)+1);
+        }
+        else if((word.charCodeAt(i)>=65 && word.charCodeAt(i)<=90)){
+            salt+=String.fromCharCode((word.charCodeAt(i)+word.charCodeAt(i)-STR.charCodeAt(0))%26+STR.charCodeAt(0))
+            salt+=String.fromCharCode(word.charCodeAt(i)+1);
+        }
+    }
+    return salt;
+}
+function login() {
+    var user = document.getElementById("txtuser").value;
+    var pass = document.getElementById("txtpass").value;
+    if (user != "" && pass != "") {
+        var userEn = encrypt(user);
+        var passEn = encrypt(pass);
+        setCookie('username', user);
+        setCookie('password', pass);
+        alert(userEn +" "+ passEn);
+    }
+    else {
+        alert("please fill username and password!");
+    }
+}
+
+</script>
+</head>
+
+<body>
+    <div>
+        <a>Username</a>
+        <input id='txtuser'>
+    </div>
+    <div>
+        <a>Password</a>
+        <input id='txtpass' type="password">
+    </div>
+    <div>
+        <button type="button" onclick="login()">Login</button>
+    </div>
+</body>
+
+</html>
